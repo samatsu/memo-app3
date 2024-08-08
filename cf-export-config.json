@@ -1,0 +1,7 @@
+{
+  "host": "api.contentful.com",
+  "contentFile": "export.json",
+  "exportDir": "contentful",
+  "spaceId": "ra65y9iohsoo",
+  "managementToken": "CFPAT-U9oncPR2fgr9H3T8rJgFb1rH2u5EVxOiFS4p6uhvEBI"
+}
