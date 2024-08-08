@@ -1,3 +1,5 @@
+import SearchBox from "./SearchBox";
+
 export default function Header() {
   return (
     <header
@@ -37,23 +39,7 @@ export default function Header() {
             GitHub
           </a>
         </nav>
-        <form
-          id="search"
-          action="{{ '/search' | url }}"
-          className="order-last sm:order-none flex-grow items-center justify-end hidden sm:block mt-6 sm:mt-0"
-        >
-          <label className="visually-hidden" htmlFor="header-searchbox">
-            Search here ...
-          </label>
-
-          <input
-            type="text"
-            id="header-searchbox"
-            name="q"
-            placeholder="Search here ..."
-            className="w-full sm:max-w-xs bg-slate-200 border border-transparent float-right focus:bg-white focus:border-slate-300 focus:outline-none h-8 p-4 placeholder-slate-500 rounded text-slate-700 text-sm"
-          ></input>
-        </form>
+        <SearchBox />
         <div
           id="menu-toggle"
           className="flex items-center md:hidden text-slate-700 hover:text-teal-600 cursor-pointer sm:ml-6"
@@ -66,8 +52,8 @@ export default function Header() {
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             className="feather feather-menu"
           >
             <line x1="3" y1="12" x2="21" y2="12"></line>

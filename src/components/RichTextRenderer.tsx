@@ -1,3 +1,4 @@
+"use client";
 import {
   documentToReactComponents,
   Options,
@@ -79,19 +80,13 @@ const renderOptions: Options = {
       }
       // Extract the language
       const matches = regex.exec(codeSnippet);
-      const language = matches && matches?.length > 2 ? matches[1] : "";
+      const language = matches && matches?.length > 1 ? matches[1] : "";
 
       // Remove the first line to avoid including metadata in the rendered version
       return (
-        <div>{codeSnippet.split("\n").slice(1).join("\n")}</div>
-        // <SyntaxHighlighter
-        //   language={language}
-        //   style={vs2015}
-        //   className="rounded-md text-sm"
-        //   showLineNumbers
-        // >
-        //   {codeSnippet.split("\n").slice(1).join("\n")}
-        // </SyntaxHighlighter>
+        <pre className={`language-${language} line-numbers`}>
+          <code>{codeSnippet.split("\n").slice(1).join("\n")}</code>
+        </pre>
       );
     },
   },

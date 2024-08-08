@@ -3,7 +3,9 @@ import { getBlogEntryBySlug } from "@/lib/blogPostClient";
 import { notFound } from "next/navigation";
 import RichTextRenderer from "@/components/RichTextRenderer";
 import Link from "next/link";
+import Image from "next/image";
 import GetPublicTagList from "@/lib/TagList";
+import PrismLoader from "@/components/PrismLoader";
 
 export const dynamicParams = true;
 
@@ -37,6 +39,7 @@ type BlogPageProps = {
 export default async function BlogPost(props: BlogPageProps) {
   const slug = props.params.slug;
   const post = await getBlogEntryBySlug(slug);
+  const img = post.fields.mainImage as any;
   const tags = await GetPublicTagList();
 
   if (post == null) {
@@ -65,18 +68,21 @@ export default async function BlogPost(props: BlogPageProps) {
           })}
         </div>
         <div className="mt-10 -mx-7 md:mx-0">
-          <img
-            className="w-full max-w-2xl mx-auto"
-            src="/assets/img/traveling-kuy.jpg"
-            width="960"
-            height="500"
-            alt="This post thumbnail"
-          />
+          {img && (
+            <Image
+              className="w-full max-w-2xl mx-auto"
+              src={`https:${img.fields.file.url}`}
+              width="960"
+              height="500"
+              alt={img.fields.title}
+            />
+          )}
         </div>
       </header>
       <div id="content" className="prose text-slate-800 max-w-none">
         {<RichTextRenderer content={post.fields.body} />}
       </div>
+      <PrismLoader />
     </article>
   );
 }
