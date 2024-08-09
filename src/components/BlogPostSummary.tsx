@@ -43,7 +43,7 @@ export default function BlogPostSummary(props: BlogSummaryProps) {
             </Link>
           </div>
           <p className="text-slate-700 mb-1" title="Published date">
-            {new Date(fields.publishDate).toLocaleString()}
+            {new Date(fields.publishDate).toLocaleDateString()}
           </p>
           <p className="text-slate-800">{fields.summary}</p>
         </div>
