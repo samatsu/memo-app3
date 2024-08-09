@@ -3,6 +3,8 @@ import LatestBlogPosts from "@/components/LatestBlogPosts";
 import { getBlogEntries } from "@/lib/blogPostClient";
 import Image from "next/image";
 
+export const revalidate = 600;
+
 const pageSize = 6;
 export default async function Home() {
   const posts = await getBlogEntries(0, pageSize);

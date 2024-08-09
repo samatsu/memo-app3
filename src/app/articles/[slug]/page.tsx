@@ -59,7 +59,7 @@ export default async function BlogPost(props: BlogPageProps) {
           })}
         </div>
         <div className="mt-10 -mx-7 md:mx-0">
-          {img && (
+          {img && post.fields.showMainImageInDetailPage && (
             <Image
               className="w-full max-w-2xl mx-auto"
               src={`https:${img.fields.file.url}`}

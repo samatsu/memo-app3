@@ -10,6 +10,7 @@ export interface TypeBlogPostFields {
   body?: EntryFields.RichText;
   publishDate: EntryFields.Date;
   mainImage?: Asset;
+  showMainImageInDetailPage: EntryFields.Boolean;
   author?: TypeAuthor;
 }
 

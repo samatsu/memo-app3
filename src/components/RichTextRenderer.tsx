@@ -10,6 +10,7 @@ import {
   Text,
   Document,
 } from "@contentful/rich-text-types";
+import ZoomedImage from "@/components/ZoomedImage";
 
 const renderOptions: Options = {
   renderNode: {
@@ -17,7 +18,7 @@ const renderOptions: Options = {
       // target the contentType of the EMBEDDED_ENTRY to display as you need
       if (node.data.target.sys.contentType.sys.id === "blogPost") {
         return (
-          <a href={`/archives/${node.data.target.fields.slug}`}>
+          <a href={`/articles/${node.data.target.fields.slug}`}>
             {" "}
             {node.data.target.fields.title}
           </a>
@@ -52,12 +53,13 @@ const renderOptions: Options = {
     [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
       // render the EMBEDDED_ASSET as you need
       return (
-        <img
-          src={`https://${node.data.target.fields.file.url}`}
-          height={node.data.target.fields.file.details.image.height}
-          width={node.data.target.fields.file.details.image.width}
-          alt={node.data.target.fields.description}
-        />
+        // <img
+        //   src={`https://${node.data.target.fields.file.url}`}
+        //   height={node.data.target.fields.file.details.image.height}
+        //   width={node.data.target.fields.file.details.image.width}
+        //   alt={node.data.target.fields.description}
+        // />
+        <ZoomedImage img={node.data.target} />
       );
     },
     [BLOCKS.PARAGRAPH]: (node, children) => {
