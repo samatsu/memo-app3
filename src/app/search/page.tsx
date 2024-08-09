@@ -1,3 +1,4 @@
+import { Metadata, ResolvingMetadata } from "next";
 import BlogPostSummary from "@/components/BlogPostSummary";
 import { searchBlogEntries } from "@/lib/blogPostClient";
 
@@ -9,6 +10,16 @@ type SearchPageProps = {
     p?: string;
   };
 };
+
+export async function generateMetadata(
+  { searchParams }: SearchPageProps,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const term = searchParams?.q || "";
+  return {
+    title: `"${term}"の検索結果`,
+  };
+}
 
 const postsPerPage = 25;
 

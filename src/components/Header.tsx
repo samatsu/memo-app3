@@ -1,4 +1,6 @@
+import Link from "next/link";
 import SearchBox from "./SearchBox";
+import { Suspense } from "react";
 
 export default function Header() {
   return (
@@ -18,28 +20,23 @@ export default function Header() {
           id="menu"
           className="order-last md:order-none items-center flex-grow w-full md:w-auto md:flex hidden mt-2 md:mt-0"
         >
-          <a
-            href="/about"
-            className="block mt-4 md:inline-block md:mt-0 font-medium text-slate-700 hover:text-teal-600 text-base mr-4"
-          >
-            About
-          </a>
-          <a
+          <Link
             href="/tags"
             className="block mt-4 md:inline-block md:mt-0 font-medium text-slate-700 hover:text-teal-600 text-base mr-4"
           >
             Tag List
-          </a>
-          <a
-            href="https://github.com/daflh/vredeburg"
-            target="_blank"
-            rel="noopener"
+          </Link>
+
+          <Link
+            href="/contact"
             className="block mt-4 md:inline-block md:mt-0 font-medium text-slate-700 hover:text-teal-600 text-base mr-4"
           >
-            GitHub
-          </a>
+            Contact Us
+          </Link>
         </nav>
-        <SearchBox />
+        <Suspense fallback={<div>Loadiing</div>}>
+          <SearchBox />
+        </Suspense>
         <div
           id="menu-toggle"
           className="flex items-center md:hidden text-slate-700 hover:text-teal-600 cursor-pointer sm:ml-6"

@@ -1,5 +1,10 @@
 import GetPublicTagList from "@/lib/TagList";
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "タグ一覧",
+};
 
 export default async function Tags() {
   const tags = await GetPublicTagList();
@@ -11,8 +16,9 @@ export default async function Tags() {
       <div className="flex justify-center flex-wrap">
         {tags.items.map((t) => (
           <Link
+            key={t.sys.id}
             className="inline-block mx-1 mb-3 px-4 py-2 bg-slate-200 text-slate-700 font-medium rounded-full"
-            href={`/tags/${t.sys.id}`}
+            href={`/tags/${t.sys.id}_${t.name}`}
           >
             {t.name}
             {/* {" "}
