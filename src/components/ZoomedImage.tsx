@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import styles from "./ZoomedImage.module.css";
+import { relative } from "path";
 
 type ZoomedImageProps = {
   img: any;
@@ -34,9 +35,20 @@ const ZoomImage = ({ img }: ZoomedImageProps) => {
           <Image
             src={`https:${zoomedImage}`}
             alt="zoomed-image"
-            layout="fill"
-            style={{ objectFit: "none" }}
+            width={1024}
+            height={576}
+            style={{
+              objectFit: "contain",
+            }}
           />
+          {/* <Image
+            src={`https:${zoomedImage}`}
+            alt="zoomed-image"
+            fill
+            style={{
+              objectFit: "contain",
+            }}
+          /> */}
         </div>
       )}
     </>

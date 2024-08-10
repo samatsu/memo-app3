@@ -8,10 +8,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  vertical-align: middle;
   z-index: 1000;
   cursor: pointer;
 }
-.zoomed-image {
-  max-width: 90vw;
-  max-height: 90vh;
+
+.zoomed-image-container img {
+  margin-top: 3em;
+  padding-bottom: 3em;
 }
