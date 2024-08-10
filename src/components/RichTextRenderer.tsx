@@ -71,6 +71,13 @@ const renderOptions: Options = {
       }
       return <p>{children}</p>;
     },
+    [BLOCKS.HEADING_1]: (node, children) => {
+      return (
+        <h1 className="text-3xl font-bold leading-normal text-slate-900 mt-0 mb-3">
+          {children}
+        </h1>
+      );
+    },
   },
   renderMark: {
     [MARKS.CODE]: (text: React.ReactNode) => {
