@@ -1,0 +1,7 @@
+{
+  "host": "api.contentful.com",
+  "contentFile": "export.json",
+  "exportDir": "contentful",
+  "spaceId": "",
+  "managementToken": ""
+}
