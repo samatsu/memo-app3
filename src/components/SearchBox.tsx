@@ -8,6 +8,7 @@ export default function SearchBox() {
 
   const handleSearch = useDebouncedCallback((term: string) => {
     const params = new URLSearchParams(searchParams);
+
     if (term) {
       params.set("q", term);
     } else {
@@ -20,7 +21,8 @@ export default function SearchBox() {
   return (
     <form
       id="search"
-      action="{{ '/search' }}"
+      method="get"
+      action="/search"
       className="order-last sm:order-none flex-grow items-center justify-end hidden sm:block mt-6 sm:mt-0"
     >
       <label className="visually-hidden" htmlFor="header-searchbox">

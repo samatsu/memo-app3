@@ -47,13 +47,14 @@ export default async function BlogPost(props: BlogPageProps) {
         </div>
         <div className="mt-3 text-center">
           {post.metadata.tags.map((t) => {
+            const tagName = tags.items.find((v) => v.sys.id == t.sys.id)?.name;
             return (
               <Link
                 key={t.sys.id}
-                href={`/tags/${t.sys.id}`}
+                href={`/tags/${t.sys.id}_${tagName}`}
                 className="inline-block bg-slate-200 rounded-full px-3 py-1 text-sm font-medium text-slate-700 m-0.5"
               >
-                #{tags.items.find((v) => v.sys.id == t.sys.id)?.name}
+                #{tagName}
               </Link>
             );
           })}
