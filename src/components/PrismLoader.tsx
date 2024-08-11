@@ -9,6 +9,7 @@ import "prismjs/components/prism-powershell";
 import "prismjs/components/prism-batch";
 import "prismjs/components/prism-csharp";
 import "prismjs/components/prism-sql";
+import "prismjs/components/prism-json";
 import "prismjs/plugins/line-numbers/prism-line-numbers";
 import "prismjs/plugins/line-numbers/prism-line-numbers.css";
 // import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard";
