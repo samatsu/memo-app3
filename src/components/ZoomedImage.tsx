@@ -24,7 +24,7 @@ const ZoomImage = ({ img }: ZoomedImageProps) => {
         <img
           src={img.fields.file.url}
           alt={img.fields.title}
-          className="w-full max-w-2xl mx-auto"
+          className="max-w-2xl mx-auto"
         ></img>
       </div>
       {zoomedImage && (
