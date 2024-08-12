@@ -72,9 +72,24 @@ export default async function BlogPost(props: BlogPageProps) {
         </div>
       </header>
       <div id="content" className="prose text-slate-800 max-w-none">
-        {<RichTextRenderer content={post.fields.body} />}
+        {/* {<RichTextRenderer content={post.fields.body} />} */}
+        {/* Use dynamic loader to work with Prism syntax highlighter toolbar plug-in */}
+        <NoSSRRichTextRenderer content={post.fields.body} />
       </div>
-      <PrismLoader />
+      <NoSSRPrismLoader />
+      {/* <PrismLoader /> */}
     </article>
   );
 }
+
+import dynamic from "next/dynamic";
+const NoSSRRichTextRenderer = dynamic(
+  () => import("@/components/RichTextRenderer"),
+  {
+    ssr: false,
+  }
+);
+
+const NoSSRPrismLoader = dynamic(() => import("@/components/PrismLoader"), {
+  ssr: false,
+});
