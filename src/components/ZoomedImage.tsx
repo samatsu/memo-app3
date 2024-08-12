@@ -21,11 +21,18 @@ const ZoomImage = ({ img }: ZoomedImageProps) => {
         className="mt-10 -mx-7 md:mx-0"
         onClick={() => openZoomedImage(img.fields.file.url)}
       >
-        <img
+        {/* <img
           src={img.fields.file.url}
           alt={img.fields.title}
-          className="max-w-2xl mx-auto"
-        ></img>
+          className="w-full max-w-2xl mx-auto"
+        ></img> */}
+        <Image
+          src={`https:${img.fields.file.url}`}
+          alt={img.fields.title}
+          className="w-full max-w-xl mx-auto"
+          width={640}
+          height={480}
+        />
       </div>
       {zoomedImage && (
         <div
@@ -36,7 +43,7 @@ const ZoomImage = ({ img }: ZoomedImageProps) => {
             src={`https:${zoomedImage}`}
             alt="zoomed-image"
             width={1024}
-            height={576}
+            height={768}
             style={{
               objectFit: "contain",
             }}
