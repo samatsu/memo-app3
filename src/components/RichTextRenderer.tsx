@@ -10,6 +10,7 @@ import {
   Text,
   Document,
 } from "@contentful/rich-text-types";
+import { useEffect, useState } from "react";
 import ZoomedImage from "@/components/ZoomedImage";
 
 const renderOptions: Options = {
@@ -101,8 +102,14 @@ const renderOptions: Options = {
   },
 };
 
+import Prism from "prismjs";
+
 export default function RichTextRenderer({ content }: { content?: Document }) {
-  if (!content) {
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+  if (!isClient || !content) {
     return <div>No Document</div>;
   } else {
     return documentToReactComponents(content, renderOptions);
